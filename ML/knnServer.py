@@ -17,14 +17,14 @@ NODE_BACKEND_URL = "http://127.0.0.1:8081/api/users/allDonors"
 
 # Blood compatibility dictionary
 BLOOD_COMPATIBILITY = {
-    "O-": ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
-    "O+": ["O+", "A+", "B+", "AB+"],
-    "A-": ["A-", "A+", "AB-", "AB+"],
-    "A+": ["A+", "AB+"],
-    "B-": ["B-", "B+", "AB-", "AB+"],
-    "B+": ["B+", "AB+"],
-    "AB-": ["AB-", "AB+"],
-    "AB+": ["AB+"]  # Universal recipient
+    "O-": ["O-"],  # Universal donor (can only receive O-)
+    "O+": ["O+", "O-"],
+    "A-": ["A-", "O-"],
+    "A+": ["A+", "A-", "O+", "O-"],
+    "B-": ["B-", "O-"],
+    "B+": ["B+", "B-", "O+", "O-"],
+    "AB-": ["AB-", "A-", "B-", "O-"],
+    "AB+": ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"]  # Universal recipient
 }
 
 # Fetch sender email & password from environment variables

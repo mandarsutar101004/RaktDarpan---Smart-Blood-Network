@@ -28,6 +28,6 @@ router.get("/allDonors", getAllDonors);
 router.put("/updateUser", authMiddleware, updateUser);
 
 //Match Donors
-router.post("/matchDonors", authMiddleware, matchDonors);
+router.post("/matchDonors", matchDonors);
 
 module.exports = router;
