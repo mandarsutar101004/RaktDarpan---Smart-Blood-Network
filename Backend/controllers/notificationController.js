@@ -1,37 +1,111 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
-// Email notification function
-exports.sendNotification = async (req, res) => {
+// Email transporter configuration
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  secure: true,
+  port: 465,
+  auth: {
+    user: "raktdarpan2024@gmail.com",
+    pass: "mnrd fljh qkri krtc",
+  },
+  tls: {
+    rejectUnauthorized: false, // 👈 Add this line to ignore self-signed cert issues
+  },
+});
+
+/**
+ * Sends urgent blood request email
+ * @param {Object} requestData - Contains all required fields
+ * @returns {Promise<Object>} - { success: boolean, message?: string, error?: string }
+ */
+const sendBloodRequestNotification = async (requestData) => {
   try {
-    const { emails, bloodGroup, location } = req.body;
+    // Destructure required fields
+    const {
+      recipientEmail,
+      recipientName,
+      bloodGroup,
+      patientName,
+      patientLocation,
+      patientContact,
+      hospitalName,
+      hospitalAddress,
+      city,
+      district,
+      state,
+      country,
+      patientAge,
+      patientGender,
+      requiredDate,
+    } = requestData;
 
-    if (!emails || emails.length === 0) {
-      return res.status(400).json({ error: "No emails provided" });
+    // Validate required fields
+    if (
+      !recipientEmail ||
+      !recipientName ||
+      !bloodGroup ||
+      !patientName ||
+      !patientLocation ||
+      !patientContact ||
+      !hospitalName ||
+      !hospitalAddress ||
+      !city ||
+      !district ||
+      !state ||
+      // !country ||
+      // !patientAge ||
+      !patientGender ||
+      !requiredDate
+    ) {
+      console.log("Received requestData:", requestData); // 👈 Correct placement
+      return {
+        success: false,
+        error: "Missing required fields",
+      };
     }
 
-    // Create a transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "your-email@gmail.com",
-        pass: "your-email-password",
-      },
+    // Generate the exact email text as specified
+    const emailText = `
+Dear ${recipientName}, 👋
+
+🩸 We are looking for a ${bloodGroup} donor for a patient admitted at 🏥 ${requestData.hospitalName}. If you have this blood group and are available to donate, please let us know.
+
+🧑‍⚕️ *Patient Details*:
+👤 Name: ${patientName}
+🚻 Gender: ${requestData.patientGender}
+📆 Required Date: ${requestData.requiredDate}
+📍 Location: ${requestData.hospitalAddress}, ${requestData.city}, ${requestData.district}, ${requestData.state}, ${requestData.country}
+
+📞 You may contact ${patientName} or their attendant directly at ${patientContact}, or feel free to reach out to our team at 📧 raktdarpan2024@gmail.com / ☎️ 0123456789 if that’s more convenient.
+
+🙏 Your help could truly save a life. Thank you for your compassion and support! ❤️
+
+Warm regards,  
+Team RaktDarpan 💌
+`;
+
+    // Send email
+    await transporter.sendMail({
+      from: '"Team RaktDarpan" <raktdarpan2024@gmail.com>',
+      to: recipientEmail,
+      subject: "🚨 Urgent Blood Requirement – Please Help Save a Life",
+      text: emailText,
     });
 
-    // Email message details
-    const mailOptions = {
-      from: "your-email@gmail.com",
-      to: emails.join(","), // Send email to multiple donors
-      subject: "Urgent Blood Donation Request",
-      text: `Dear Donor,\n\nA patient nearby needs ${bloodGroup} blood. Please help if available. Location: ${location}.\n\nThank you!\nSmart Blood Network`,
+    return {
+      success: true,
+      message: "Blood request notification sent successfully",
     };
-
-    // Send the email
-    await transporter.sendMail(mailOptions);
-
-    res.status(200).json({ message: "Email notifications sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ error: "Failed to send email notifications" });
+    console.error("Notification error:", error);
+    return {
+      success: false,
+      error: "Failed to send notification",
+      details: error.message,
+    };
   }
 };
+
+module.exports = { sendBloodRequestNotification };

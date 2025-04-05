@@ -94,13 +94,29 @@ const registerUser = async (req, res) => {
 //Login User
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, role } = req.body;
 
-    // Check if user exists
-    const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "User not found!" });
+    // Validate input
+    if (!email || !password || !role) {
+      return res.status(400).json({
+        message: "Email, password, and role are required!",
+      });
     }
+
+    // Check if user exists with the given email and role
+    const user = await userModel.findOne({ email, role });
+    if (!user) {
+      return res.status(400).json({
+        message: "User not found with the specified email and role!",
+      });
+    }
+
+    // Check if user is active (optional)
+    // if (user.status !== "active") {
+    //   return res.status(403).json({
+    //     message: "Account is not active. Please contact support.",
+    //   });
+    // }
 
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
@@ -108,14 +124,28 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials!" });
     }
 
-    // Generate JWT Token
+    // Generate JWT Token with additional user info
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      {
+        userId: user._id,
+        role: user.role,
+        email: user.email,
+        name: user.name,
+      },
       process.env.JWT_SECRET,
       { expiresIn: "1d" } // Token valid for 1 day
     );
 
+    // Set cookie with token (optional)
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    });
+
+    // Successful response
     res.status(200).json({
+      success: true,
       message: "Login successful!",
       token,
       user: {
@@ -123,10 +153,18 @@ const loginUser = async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
+        bloodGroup: user.bloodGroup, // Include additional fields as needed
+        profilePic: user.profilePic,
       },
+      expiresIn: 24 * 60 * 60, // 1 day in seconds
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Login error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 
