@@ -19,7 +19,9 @@ const userSchema = new mongoose.Schema(
     gender: {
       type: String,
       enum: ["Male", "Female", "Other"],
-      required: false,
+      required: function () {
+        return this.role !== "Hospital" && this.role !== "Organization";
+      },
     },
     dob: {
       type: Date,

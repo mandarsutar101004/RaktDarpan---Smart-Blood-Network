@@ -6,6 +6,7 @@ const {
   getAllDonors,
   updateUser,
   matchDonors,
+  getAllHospitals,
 } = require("../controllers/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
 const router = express.Router();
@@ -23,6 +24,8 @@ router.get("/currentUser", authMiddleware, currentUser);
 
 //Get all Donors
 router.get("/allDonors", getAllDonors);
+
+router.get("/allHospitals", getAllHospitals);
 
 //Update User
 router.put("/updateUser", authMiddleware, updateUser);

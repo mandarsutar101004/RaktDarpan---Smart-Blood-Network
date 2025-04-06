@@ -193,6 +193,19 @@ const getAllDonors = async (req, res) => {
   }
 };
 
+const getAllHospitals = async (req, res) => {
+  try {
+    const hospitals = await userModel
+      .find({ role: "Hospital" })
+      .select("-password"); // Exclude password field
+    res.status(200).json(hospitals);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching Hospitals", error: error.message });
+  }
+};
+
 //Update User
 const updateUser = async (req, res) => {
   try {
@@ -266,6 +279,7 @@ module.exports = {
   loginUser,
   currentUser,
   getAllDonors,
+  getAllHospitals,
   updateUser,
   matchDonors,
 };
