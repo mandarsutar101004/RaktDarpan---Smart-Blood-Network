@@ -1,0 +1,344 @@
+/* RegistrationPage.css */
+.reg-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reg-left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #ff4757, #e84118);
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-left-content {
+  max-width: 500px;
+}
+
+.reg-brand-logo {
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.reg-welcome-text {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.reg-welcome-subtext {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.reg-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reg-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+}
+
+.reg-benefit-icon {
+  font-size: 1.5rem;
+}
+
+.reg-right-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 40px;
+}
+
+.reg-form-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+}
+
+.reg-form-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.reg-form-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.reg-form-header p {
+  color: #666;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reg-form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.reg-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reg-form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.reg-form-input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.reg-form-input:focus {
+  outline: none;
+  border-color: #ff4757;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+}
+
+.reg-form-input.readonly {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.reg-form-select {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1rem;
+}
+
+.reg-form-textarea {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.reg-role-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reg-role-option {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.reg-role-option:hover {
+  border-color: #ff4757;
+  color: #ff4757;
+}
+
+.reg-role-option.active {
+  background: #ff4757;
+  color: white;
+  border-color: #ff4757;
+}
+
+.reg-blood-group-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reg-blood-option {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.reg-blood-option:hover {
+  border-color: #ff4757;
+}
+
+.reg-blood-option.active {
+  background: #ff4757;
+  color: white;
+  border-color: #ff4757;
+}
+
+.reg-password-input {
+  position: relative;
+}
+
+.reg-password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.reg-password-strength {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reg-strength-bar {
+  height: 4px;
+  flex: 1;
+  background: #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.reg-strength-bar.active {
+  background: #ff6b81;
+}
+
+.reg-strength-bar.strong {
+  background: #2ed573;
+}
+
+.reg-strength-text {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.reg-submit-btn {
+  padding: 15px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reg-submit-btn:hover {
+  background: #e84118;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+.reg-submit-btn:disabled {
+  background: #ccc;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.reg-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: reg-spin 1s ease-in-out infinite;
+}
+
+@keyframes reg-spin {
+  to { transform: rotate(360deg); }
+}
+
+.reg-login-link {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}
+
+.reg-login-link a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.reg-login-link a:hover {
+  text-decoration: underline;
+}
+
+.reg-error-message {
+  padding: 12px;
+  background: #ffecec;
+  color: #dc3545;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  border-left: 4px solid #dc3545;
+}
+
+@media (max-width: 992px) {
+  .reg-container {
+    flex-direction: column;
+  }
+  
+  .reg-left-panel {
+    padding: 30px 20px;
+  }
+  
+  .reg-right-panel {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reg-form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .reg-form-container {
+    padding: 25px;
+  }
+}

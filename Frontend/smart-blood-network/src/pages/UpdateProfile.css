@@ -1,0 +1,291 @@
+/* UpdateProfile.css */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a0ca3;
+  --primary-light: #e0e7ff;
+  --secondary: #f72585;
+  --success: #4cc9f0;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --form-bg: #f5f7ff; /* New form background color */
+  --card-bg: #ffffff; /* Card background color */
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.update-profile-container {
+  max-width: 1200px;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.6s ease-out;
+  background-color: var(--form-bg); /* Form background */
+  border-radius: var(--border-radius);
+}
+
+/* Card Styling */
+.profile-card {
+  border: none;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--card-bg); /* Card background */
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Header Section */
+.profile-header {
+  text-align: center;
+  padding: 2rem 2rem 1rem;
+  background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-header h2 {
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+}
+
+/* Enhanced Badge Styling for Role */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.5em 1.2em;
+  font-size: 1.1rem; /* Larger font size */
+  transform: scale(1.1); /* Slightly scale up */
+  margin: 0.5rem 0;
+  display: inline-block;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark)) !important;
+  box-shadow: 0 4px 12px rgba(58, 12, 163, 0.2);
+  padding: 0.6em 1.5em; /* Larger padding */
+}
+
+/* Form Styling */
+.profile-form {
+  padding: 2rem;
+  background-color: var(--card-bg); /* Form background */
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-control, .form-select {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
+  outline: none;
+}
+
+.form-control[disabled] {
+  background-color: var(--light-gray);
+  opacity: 0.8;
+}
+
+/* Select Dropdown Styling */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%236c757d' stroke='%236c757d' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+}
+
+/* Button Styles */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(58, 12, 163, 0.3);
+}
+
+.btn-outline-secondary {
+  border: 2px solid var(--gray);
+  color: var(--gray);
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--light-gray);
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* Loading Spinner */
+.btn .spinner-border {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: 0.15em;
+  margin-right: 0.5rem;
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border: none;
+  box-shadow: var(--box-shadow);
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border-left: 4px solid #dc3545;
+}
+
+.alert-success {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: #198754;
+  border-left: 4px solid #198754;
+}
+
+/* Section Styling */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .profile-form {
+    padding: 1.5rem;
+  }
+  
+  .profile-header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .update-profile-container {
+    padding: 1rem 0;
+  }
+  
+  .profile-card {
+    border-radius: 0;
+  }
+  
+  .profile-form {
+    padding: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .profile-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .badge {
+    font-size: 1rem; /* Slightly smaller on mobile */
+    transform: scale(1); /* Reset scale on mobile */
+  }
+}

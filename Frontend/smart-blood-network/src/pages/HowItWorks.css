@@ -1,0 +1,132 @@
+.how-it-works {
+  padding: 4rem 1rem;
+  background: #fef6f6;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  color: #d32f2f;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.flow-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.tab {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #ffebee;
+  color: #d32f2f;
+  transition: all 0.3s;
+}
+
+.tab.active {
+  background: #d32f2f;
+  color: white;
+}
+
+.steps-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.flow-section {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.flow-section.active {
+  display: block;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.step-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(215, 50, 50, 0.1);
+  transition: transform 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-emoji {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.cta-button.primary {
+  background: #d32f2f;
+  color: white;
+}
+
+.cta-button.primary:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.cta-button.secondary:hover {
+  background: #ffebee;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}

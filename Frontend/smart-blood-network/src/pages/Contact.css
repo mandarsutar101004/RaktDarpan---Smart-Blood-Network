@@ -1,0 +1,82 @@
+/* Base Styles */
+.contact-section {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 56px); /* Adjust for navbar height */
+}
+
+.contact-subtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+/* Contact Cards */
+.contact-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.contact-link {
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #bb2d3b;
+  text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.submit-btn {
+  background-color: #dc3545;
+  border: none;
+  padding: 0.75rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #bb2d3b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-card {
+    margin-bottom: 1.5rem;
+  }
+}

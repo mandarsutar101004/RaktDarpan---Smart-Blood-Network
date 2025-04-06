@@ -1,0 +1,91 @@
+.donation-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* Adds more space between image and table */
+  flex-wrap: wrap;
+  margin-left: 2%;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the button below the image */
+  text-align: center;
+}
+
+.donation-image {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 150px;
+}
+
+.donate-button {
+  margin-left: 200px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: darkred;
+}
+
+.table-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-content {
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  min-width: 1000px;
+  max-width: 1200px;
+  font-size: 16px;
+  border-collapse: collapse;
+  margin-top: 40px; /* Reduced space between heading and table */
+}
+
+.table th {
+  background-color: #ffcccc; /* Light pink background */
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Blood Groups Styling */
+.table td:first-child {
+  font-weight: bold;
+  color: darkred; /* Dark red blood groups */
+}
+
+h2 {
+  margin-bottom: 5px; /* Reduced space between title and table */
+  font-weight: bold;
+  color: #dc3545;;
+  text-align: center;
+}

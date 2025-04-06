@@ -1,0 +1,66 @@
+.donor-table {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 47px;
+}
+
+.donor-table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.donor-table td {
+  vertical-align: middle;
+}
+
+.filter-card {
+  border-radius: 8px;
+  border: none;
+}
+
+.filter-button {
+  min-width: 150px;
+}
+
+.table-responsive {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-primary {
+  color: #0d6efd !important;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+/* Add these styles to your existing CSS */
+.pagination {
+  margin-bottom: 0;
+}
+
+.page-item.active .page-link {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.page-link {
+  color: #dc3545;
+}
+
+.page-link:hover {
+  color: #b02a37;
+}
+
+#heading{
+    color: #dc3545;
+    font-size: 3rem;
+}

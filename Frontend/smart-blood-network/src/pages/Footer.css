@@ -1,0 +1,141 @@
+/* Footer Base Styles */
+.footer-section {
+  background-color: #212529 !important;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.footer-heading {
+  color: #fff;
+  font-size: 1.25rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background: #dc3545;
+}
+
+/* Links Styling */
+.footer-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #dc3545;
+  padding-left: 5px;
+}
+
+/* Contact Info */
+.footer-contact {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 1rem;
+  color: #adb5bd;
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-contact a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #dc3545;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #dc3545;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Newsletter Form */
+.newsletter-form .form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  border-radius: 0;
+}
+
+.newsletter-form .form-control::placeholder {
+  color: #ced4da;
+}
+
+.newsletter-form .form-control:focus {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  color: #fff;
+}
+
+.subscribe-btn {
+  background: #dc3545;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background: #bb2d3b;
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .footer-contact li {
+    justify-content: center;
+  }
+}
