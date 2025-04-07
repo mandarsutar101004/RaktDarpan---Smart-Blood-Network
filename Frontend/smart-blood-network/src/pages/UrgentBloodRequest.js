@@ -439,6 +439,7 @@ const UrgentBloodRequest = () => {
                               hospitalName: formData.hospitalName,
                               city: formData.city,
                               state: formData.state,
+                              country: formData.country,
                               contact: formData.contact,
                               location: apiResponse?.location,
                               age: formData.patientAge,

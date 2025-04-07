@@ -54,7 +54,7 @@ const sendBloodRequestNotification = async (requestData) => {
       !city ||
       !district ||
       !state ||
-      // !country ||
+      !country ||
       // !patientAge ||
       !patientGender ||
       !requiredDate

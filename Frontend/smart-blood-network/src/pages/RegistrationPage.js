@@ -65,57 +65,61 @@ const RegistrationPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setErrorMessage("");
-  setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+    setLoading(true);
 
-  try {
-    // Create a clean payload object
-    const payload = {
-      name: formData.name,
-      designation: formData.designation,
-      email: formData.email,
-      mobile: formData.mobile,
-      address: formData.address,
-      city: formData.city,
-      district: formData.district,
-      state: formData.state,
-      country: formData.country,
-      password: formData.password,
-      role,
-    };
+    try {
+      // Create a clean payload object
+      const payload = {
+        name: formData.name,
+        designation: formData.designation,
+        email: formData.email,
+        mobile: formData.mobile,
+        address: formData.address,
+        city: formData.city,
+        district: formData.district,
+        state: formData.state,
+        country: formData.country,
+        password: formData.password,
+        role,
+      };
 
-    // Add role-specific fields
-    if (role === "Hospital" || role === "Organization") {
-      payload.regNo = formData.regNo;
-    } else {
-      // Only include these fields for Donor/Recipient/Admin
-      payload.gender = formData.gender;
-      payload.dob = formData.dob;
-      if (role === "Donor" || role === "Recipient") {
-        payload.bloodGroup = formData.bloodGroup;
+      // Add role-specific fields
+      if (role === "Hospital" || role === "Organization") {
+        payload.regNo = formData.regNo;
+      } else {
+        // Only include these fields for Donor/Recipient/Admin
+        payload.gender = formData.gender;
+        payload.dob = formData.dob;
+        if (role === "Donor" || role === "Recipient") {
+          payload.bloodGroup = formData.bloodGroup;
+        }
       }
+
+      console.log("Sending payload to backend:", payload);
+
+      const response = await axios.post(
+        "http://localhost:8081/api/users/register",
+        payload
+      );
+
+      alert("Registration successful! Please login.");
+      navigate("/login");
+    } catch (error) {
+      console.error(
+        "Registration Error:",
+        error.response?.data || error.message
+      );
+      setErrorMessage(
+        error.response?.data?.message ||
+          "Registration failed. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
-
-    console.log("Sending payload to backend:", payload);
-
-    const response = await axios.post(
-      "http://localhost:8081/api/users/register",
-      payload
-    );
-
-    alert("Registration successful! Please login.");
-    navigate("/login");
-  } catch (error) {
-    console.error("Registration Error:", error.response?.data || error.message);
-    setErrorMessage(
-      error.response?.data?.message || "Registration failed. Please try again."
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+  };
   return (
     <div className="reg-container">
       <div className="reg-left-panel">
