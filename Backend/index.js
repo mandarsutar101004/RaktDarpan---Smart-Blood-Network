@@ -8,6 +8,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const userRoutes = require("./routes/userRoute");
 const notificationRoutes = require("./routes/notificationRoute");
+const campRoutes = require("./routes/campRoute");
 
 //Create Server
 const app = express();
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 //Routes
 app.use("/api/users", userRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/camps", campRoutes);
 
 //MongoDB Connection
 connectDB();

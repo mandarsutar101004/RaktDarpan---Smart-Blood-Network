@@ -1,0 +1,157 @@
+/* EligibilityChecker.css */
+
+.ec-body {
+  background: #f7f7f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ec-container {
+  max-width: 480px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.ec-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: ec-fadeIn 0.5s ease-in-out;
+}
+
+.ec-fade-in {
+  opacity: 0;
+  animation: ec-fadeIn 0.5s forwards;
+}
+
+@keyframes ec-fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.ec-step {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.ec-card h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.ec-btn-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ec-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ec-btn-yes {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.ec-btn-no {
+  background-color: #c62828;
+  color: white;
+}
+
+.ec-btn:hover {
+  opacity: 0.9;
+}
+
+.ec-card-red {
+  border-left: 6px solid #e53935;
+}
+
+.ec-card-green {
+  border-left: 6px solid #43a047;
+}
+
+.ec-reason {
+  font-size: 16px;
+  margin: 20px 0;
+  color: #555;
+}
+
+.ec-btn-retry {
+  background-color: #1976d2;
+  color: white;
+  margin-top: 15px;
+}
+
+.ec-progress-container {
+  height: 8px;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.ec-progress-bar {
+  height: 100%;
+  background-color: #c62828;
+  transition: width 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+.ec-note {
+  font-size: 14px;
+  color: #666;
+  margin: 20px 0;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border-left: 3px solid #1976d2;
+  line-height: 1.5;
+}
+
+.ec-card-red .ec-note {
+  border-left-color: #e53935;
+  background-color: #ffebee;
+}
+
+.ec-card-green .ec-note {
+  border-left-color: #43a047;
+  background-color: #e8f5e9;
+}
+
+.ec-heading {
+  color: #c62828;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.ec-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #c62828;
+  border-radius: 3px;
+}
+
+/* Adjust container margin to accommodate new heading */
+.ec-container {
+  margin: 40px auto 80px; /* Reduced top margin from 80px to 40px */
+}

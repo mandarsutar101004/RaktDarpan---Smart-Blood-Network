@@ -1,0 +1,384 @@
+/* LiveCamps.css - Fully Component-Scoped */
+
+/* Base Styles */
+.live-camps-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #333;
+  animation: live-camps-fadeIn 0.5s ease-out;
+}
+
+@keyframes live-camps-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.live-camps-title {
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.live-camps-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #d32f2f, #ff6b6b);
+  border-radius: 3px;
+}
+
+/* Filters Section */
+.live-camps-filters-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.live-camps-filters-section:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.live-camps-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.live-camps-filter-label {
+  font-weight: 600;
+  color: #444;
+  font-size: 0.95rem;
+  margin-left: 0.2rem;
+}
+
+.live-camps-filter-input {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.live-camps-filter-input:focus {
+  outline: none;
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
+  background-color: white;
+}
+
+.live-camps-date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.live-camps-date-inputs input {
+  flex: 1;
+}
+
+.live-camps-date-span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.live-camps-reset-btn {
+  align-self: flex-end;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.live-camps-reset-btn:hover {
+  background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Results Count */
+.live-camps-results-count {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Table */
+.live-camps-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: white;
+  margin-bottom: 2rem;
+}
+
+.live-camps-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 800px;
+}
+
+.live-camps-table th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, #d32f2f, #b71c1c);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.live-camps-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.live-camps-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.live-camps-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+.live-camps-table tr:last-child td {
+  border-bottom: none;
+}
+
+.live-camps-table tr:hover td {
+  background-color: #fff9f9;
+}
+
+/* Details Button */
+.live-camps-details-btn {
+  background: linear-gradient(135deg, #d32f2f, #ff5252);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(211, 47, 47, 0.2);
+}
+
+.live-camps-details-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(211, 47, 47, 0.3);
+  background: linear-gradient(135deg, #c62828, #ff3d3d);
+}
+
+/* Pagination */
+.live-camps-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.live-camps-pagination-btn {
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.live-camps-pagination-btn:hover:not(:disabled) {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.live-camps-pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.live-camps-pagination-span {
+  font-weight: 600;
+  color: #666;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Modal */
+.live-camps-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: live-camps-fadeIn 0.3s ease-out;
+}
+
+.live-camps-modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: live-camps-modalSlideIn 0.4s ease-out;
+}
+
+@keyframes live-camps-modalSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.live-camps-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.live-camps-close-btn:hover {
+  color: #d32f2f;
+}
+
+.live-camps-camp-details {
+  margin-top: 1rem;
+}
+
+.live-camps-camp-details p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  display: flex;
+}
+
+.live-camps-camp-details strong {
+  color: #333;
+  min-width: 140px;
+  display: inline-block;
+}
+
+/* Loading and Error States */
+.live-camps-loading, 
+.live-camps-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.live-camps-loading {
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.live-camps-error {
+  color: #d32f2f;
+}
+
+.live-camps-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(211, 47, 47, 0.2);
+  border-radius: 50%;
+  border-top-color: #d32f2f;
+  animation: live-camps-spin 1s ease-in-out infinite;
+}
+
+@keyframes live-camps-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .live-camps-container {
+    padding: 1rem;
+  }
+  
+  .live-camps-filters-section {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+  
+  .live-camps-date-inputs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .live-camps-reset-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+  
+  .live-camps-table {
+    font-size: 0.9rem;
+  }
+  
+  .live-camps-table th,
+  .live-camps-table td {
+    padding: 0.8rem;
+  }
+  
+  .live-camps-pagination {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .live-camps-pagination-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile touch scrolling */
+@media (max-width: 600px) {
+  .live-camps-table-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}

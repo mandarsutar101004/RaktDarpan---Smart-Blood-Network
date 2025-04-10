@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import axios from "axios";
 import ScrollLink from "./ScrollLink";
-import userLogo from "../Photos/user.png"; 
-// Adjust the path as necessary
+import userLogo from "../Photos/user.png";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -75,6 +74,47 @@ const Header = () => {
       return;
     }
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  // Function to render dynamic sidebar links based on user role
+  const renderRoleSpecificLinks = () => {
+    if (!user || !user.role) return null;
+
+    switch (user.role) {
+      case "Donor":
+      case "Recipient":
+        return (
+          <Link
+            to="/blood-camps"
+            className="sidebar-link"
+            onClick={toggleSidebar}
+          >
+            Blood Camps Near Me
+          </Link>
+        );
+      case "Hospital":
+      case "Organization":
+        return (
+          <>
+            <Link
+              to="/register-blood-camp"
+              className="sidebar-link"
+              onClick={toggleSidebar}
+            >
+              Register Blood Camps
+            </Link>
+            <Link
+              to="/update-blood-camps"
+              className="sidebar-link"
+              onClick={toggleSidebar}
+            >
+              Update Blood Camps
+            </Link>
+          </>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -155,15 +195,8 @@ const Header = () => {
               >
                 My Profile
               </Link>
-              {user.role === "DONOR" && (
-                <Link
-                  to="/donations"
-                  className="sidebar-link"
-                  onClick={toggleSidebar}
-                >
-                  My Donations
-                </Link>
-              )}
+
+              {/* Common links for all roles */}
               <Link
                 to="/update-profile"
                 className="sidebar-link"
@@ -171,6 +204,10 @@ const Header = () => {
               >
                 Update Profile
               </Link>
+
+              {/* Role-specific links */}
+              {renderRoleSpecificLinks()}
+
               <Link
                 to="/settings"
                 className="sidebar-link"
@@ -178,6 +215,7 @@ const Header = () => {
               >
                 Settings
               </Link>
+
               <button className="sidebar-link logout" onClick={handleLogout}>
                 Logout
               </button>

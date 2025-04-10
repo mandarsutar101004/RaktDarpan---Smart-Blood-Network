@@ -109,8 +109,8 @@ def send_email_notifications(donors, recipient_name, recipient_email, recipient_
 def match_donors():
     try:
         data = request.json
-        recipient_lat = data.get("latitude")
-        recipient_lon = data.get("longitude")
+        recipient_lat = float(data.get("latitude"))
+        recipient_lon = float(data.get("longitude"))
         recipient_blood_group = data.get("bloodGroup")
         recipient_name = data.get("recipientName")
         recipient_email = data.get("recipientEmail")
