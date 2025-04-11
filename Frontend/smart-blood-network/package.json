@@ -22,10 +22,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-ml\"",
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-ml\" \"npm run start-ml-camps\"",
     "start-frontend": "react-scripts start",
     "start-backend": "cd ../../backend && npm start",
-    "start-ml": "cd ../../ml && python knnServer.py",
+    "start-ml": "cd ../../ML && python knnServer.py",
+    "start-ml-camps": "cd ../../ML && python nearbyCamps.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

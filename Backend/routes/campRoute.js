@@ -13,4 +13,25 @@ router.post(
 
 router.get("/allCamps", campController.getAllCamps);
 
+router.post(
+  "/matchCamps",
+  authMiddleware,
+  checkRole(["Donor", "Recipient"]),
+  campController.matchCamps
+);
+
+router.put(
+  "/updateCamp",
+  authMiddleware,
+  checkRole(["Hospital", "Organization"]),
+  campController.updateCamp
+);
+
+router.delete(
+  "/deleteCamp",
+  authMiddleware,
+  checkRole(["Hospital", "Organization"]),
+  campController.deleteCamp
+);
+
 module.exports = router;

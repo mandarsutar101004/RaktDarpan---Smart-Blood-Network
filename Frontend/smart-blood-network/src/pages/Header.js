@@ -104,11 +104,11 @@ const Header = () => {
               Register Blood Camps
             </Link>
             <Link
-              to="/update-blood-camps"
+              to="/manage-blood-camps"
               className="sidebar-link"
               onClick={toggleSidebar}
             >
-              Update Blood Camps
+              Manage Blood Camps
             </Link>
           </>
         );

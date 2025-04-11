@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CampRegistration.css";
@@ -10,8 +10,8 @@ const CampRegistration = () => {
     organizerName: "",
     organizerType: "",
     organizerContact: "",
-    organizerEmail: "",
-    inCollaborationWith: [], // Initialize as empty array instead of string
+    organizerEmail: "", // This will be populated after fetch
+    inCollaborationWith: [],
     organizingDate: "",
     campStartTime: "",
     campEndTime: "",
@@ -25,6 +25,7 @@ const CampRegistration = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
   const organizerTypes = [
     "NGO",
@@ -34,6 +35,36 @@ const CampRegistration = () => {
     "Educational",
     "Other",
   ];
+
+  // Fetch current user data on component mount
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get(
+          "http://localhost:8081/api/users/currentUser",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        // Set the email from the response data
+        setFormData((prev) => ({
+          ...prev,
+          organizerEmail: response.data.email || "",
+        }));
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+        // Handle error (maybe redirect to login)
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCurrentUser();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,10 +78,12 @@ const CampRegistration = () => {
     const value = e.target.value;
     setFormData({
       ...formData,
-      // Convert comma-separated string to array
-      inCollaborationWith: value 
-        ? value.split(",").map(item => item.trim()).filter(item => item)
-        : []
+      inCollaborationWith: value
+        ? value
+            .split(",")
+            .map((item) => item.trim())
+            .filter((item) => item)
+        : [],
     });
   };
 
@@ -132,6 +165,12 @@ const CampRegistration = () => {
     }
   };
 
+  if (isLoading) {
+    return (
+      <div className="camp-registration-container">Loading user data...</div>
+    );
+  }
+
   return (
     <div className="camp-registration-container blood-camp-form">
       <h2>Register New Blood Camp</h2>
@@ -210,6 +249,8 @@ const CampRegistration = () => {
               name="organizerEmail"
               value={formData.organizerEmail}
               onChange={handleChange}
+              readOnly // Make the field read-only
+              className="read-only-input" // Optional: Add style to indicate it's read-only
             />
             {errors.organizerEmail && (
               <span className="error">{errors.organizerEmail}</span>

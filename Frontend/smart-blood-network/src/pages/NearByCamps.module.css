@@ -1,0 +1,412 @@
+/* NearByCamps.module.css */
+
+/* Root container that scopes all styles */
+.nearbyCampsContainer {
+  /* Reset any inherited styles */
+  all: initial;
+  /* Re-apply base styles */
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  /* Container styles */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: block;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.headerContent h1 {
+  color: #e63946;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Button styles */
+.refreshBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background-color: #e63946;
+  color: white;
+}
+
+.refreshBtn:hover {
+  background-color: #c1121f;
+  transform: translateY(-2px);
+}
+
+.refreshBtn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.retryBtn {
+  background-color: white;
+  color: #e63946;
+  border: 1px solid #e63946;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.retryBtn:hover {
+  background-color: #e63946;
+  color: white;
+}
+
+/* Error message */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff3f3;
+  border-left: 4px solid #e63946;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  color: #c1121f;
+}
+
+/* Dashboard layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+/* User info section */
+.userInfo {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.infoCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.infoCard h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  color: #1d3557;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.locationDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.locationItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.value {
+  color: #1d3557;
+  font-weight: 600;
+}
+
+.noLocation {
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Camps section */
+.campsSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  color: #1d3557;
+}
+
+.resultsCount {
+  background: #f8f9fa;
+  color: #6c757d;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+}
+
+/* Camps grid */
+.campsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Camp card */
+.campCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.campCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: white;
+}
+
+.cardHeader h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.campMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.cardBody {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.timeInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e63946;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #1d3557;
+}
+
+.detailRow {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.detailLabel {
+  font-weight: 600;
+  color: #1d3557;
+  min-width: 80px;
+}
+
+.detailValue {
+  color: #6c757d;
+}
+
+.description {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.collaborators {
+  margin-top: 1rem;
+}
+
+.partnerTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.partnerTag {
+  background: #f1faee;
+  color: #457b9d;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.cardFooter {
+  display: flex;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 0.75rem;
+}
+
+.viewBtn {
+  background: #f8f9fa;
+  color: #1d3557;
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.viewBtn:hover {
+  background: #e9ecef;
+}
+
+.registerBtn {
+  background: #457b9d;
+  color: white;
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.registerBtn:hover {
+  background: #3a6a8a;
+}
+
+/* No results */
+.noResults {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.noResults p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+/* Loading spinners */
+.loadingSpinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #e63946;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+.loadingSpinnerLarge {
+  width: 3rem;
+  height: 3rem;
+  border-width: 4px;
+  margin: 3rem auto;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .userInfo {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .campsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cardFooter {
+    flex-direction: column;
+  }
+  
+  .viewBtn, .registerBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nearbyCampsContainer {
+    padding: 1rem;
+  }
+  
+  .headerContent h1 {
+    font-size: 1.75rem;
+  }
+}

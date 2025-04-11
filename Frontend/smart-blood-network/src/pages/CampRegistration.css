@@ -113,6 +113,11 @@
   cursor: not-allowed;
 }
 
+.blood-camp-form .read-only-input {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .blood-camp-form {
