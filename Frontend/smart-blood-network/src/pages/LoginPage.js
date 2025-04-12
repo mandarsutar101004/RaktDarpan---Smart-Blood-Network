@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.css";
+import sbn6 from "../Photos/sbn6.png";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const LoginPage = () => {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -40,105 +42,143 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <div className="login-header">
-          <img
-            src="/logo.png"
-            alt="Blood Donation System Logo"
-            className="logo"
-          />
-          <h1>Welcome Back</h1>
-          <p>Sign in to continue to your account</p>
+    <div className="login-container">
+      <div className="login-left-panel">
+        <div className="login-left-content">
+          <img src={sbn6} alt="Logo" className="login-brand-logo" />
+          <h1 className="login-welcome-text">
+            Welcome Back to Our Life-Saving Community
+          </h1>
+          <p className="login-welcome-subtext">
+            Every login brings us closer to saving more lives. Sign in to
+            continue your journey.
+          </p>
+          <div className="login-benefits">
+            <div className="login-benefit-item">
+              <span className="login-benefit-icon">💉</span>
+              <span>Track your donations</span>
+            </div>
+            <div className="login-benefit-item">
+              <span className="login-benefit-icon">🏥</span>
+              <span>Emergency notifications</span>
+            </div>
+            <div className="login-benefit-item">
+              <span className="login-benefit-icon">🔄</span>
+              <span>Regular health checkups</span>
+            </div>
+          </div>
         </div>
+      </div>
 
-        {error && <div className="error-message">{error}</div>}
+      <div className="login-right-panel">
+        <div className="login-form-container">
+          <div className="login-form-header">
+            <h2>Sign In</h2>
+            <p>Enter your credentials to access your account</p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="input-group">
-            <label htmlFor="role">I am a</label>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              required
+          {error && <div className="login-error-message">{error}</div>}
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="login-form-group">
+              <label className="login-form-label">I am a</label>
+              <div className="login-role-selector">
+                {[
+                  "Donor",
+                  "Recipient",
+                  "Hospital",
+                  "Organization",
+                  "Admin",
+                ].map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    className={`login-role-option ${
+                      formData.role === option ? "active" : ""
+                    }`}
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        role: option,
+                      }))
+                    }
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="login-form-group">
+              <label htmlFor="email" className="login-form-label">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="login-form-input"
+                placeholder="john@example.com"
+              />
+            </div>
+
+            <div className="login-form-group">
+              <label htmlFor="password" className="login-form-label">
+                Password
+              </label>
+              <div className="login-password-input">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className="login-form-input"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  className="login-password-toggle"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </button>
+              </div>
+            </div>
+
+            <div className="login-form-options">
+              <label className="login-remember-me">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <Link to="/forgot-password" className="login-forgot-password">
+                Forgot password?
+              </Link>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="login-submit-btn"
             >
-              <option value="Donor">Donor</option>
-              <option value="Recipient">Recipient</option>
-              <option value="Hospital">Hospital Staff</option>
-              <option value="Organisation">Organisation</option>
-              <option value="Admin">Administrator</option>
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="Enter your email"
-            />
-            <span className="input-icon">✉️</span>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="Enter your password"
-            />
-            <span className="input-icon">🔒</span>
-          </div>
-
-          <div className="form-options">
-            <label className="remember-me">
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </label>
-            <Link to="/forgot-password" className="forgot-password">
-              Forgot password?
-            </Link>
-          </div>
-
-          <button type="submit" disabled={loading} className="login-btn">
-            {loading ? (
-              <>
-                <span className="spinner"></span>
-                Signing in...
-              </>
-            ) : (
-              "Sign In"
-            )}
-          </button>
-
-          <div className="register-prompt">
-            Don't have an account?{" "}
-            <Link to="/register" className="register-link">
-              Create account
-            </Link>
-          </div>
-        </form>
-
-        <div className="social-login">
-          <p>Or sign in with</p>
-          <div className="social-icons">
-            <button type="button" className="social-btn google">
-              <img src="/google-icon.png" alt="Google" />
+              {loading ? (
+                <>
+                  <span className="login-spinner"></span>
+                  Signing In...
+                </>
+              ) : (
+                "Sign In"
+              )}
             </button>
-            <button type="button" className="social-btn facebook">
-              <img src="/facebook-icon.png" alt="Facebook" />
-            </button>
-          </div>
+
+            <div className="login-register-link">
+              Don't have an account? <Link to="/register">Create account</Link>
+            </div>
+          </form>
         </div>
       </div>
     </div>

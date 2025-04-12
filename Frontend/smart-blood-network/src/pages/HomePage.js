@@ -18,10 +18,10 @@ const HomePage = () => {
       <Header />
       <HeroSection />
       <LiveCamps />
+      <EligibilityChecker />
       <DonorFinder />
       <HospitalFinder />
       <LearnAboutDonation />
-      <EligibilityChecker />
       <HowItWorks />
       <Contact />
       <Footer />

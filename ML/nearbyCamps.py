@@ -12,7 +12,7 @@ CORS(app)
 USER_API = "http://localhost:8081/api/users/currentUser"
 CAMPS_API = "http://localhost:8081/api/camps/allCamps"
 DEFAULT_MAX_DISTANCE = 50  # km
-DEFAULT_LIMIT = 3  # Show 3 nearest camps
+DEFAULT_LIMIT = 4  # Show 4 nearest camps
 EARTH_RADIUS = 6371  # km
 
 def get_auth_header(token):
@@ -129,9 +129,9 @@ def find_nearby_camps():
         except (ValueError, TypeError):
             return jsonify({"error": "Invalid maxDistance parameter", "success": False}), 400
 
-        # KNN algorithm to find nearest 3 camps
+        # KNN algorithm to find nearest 4 camps
         knn = NearestNeighbors(
-            n_neighbors=min(3, len(valid_camps)),  # Always get exactly 3 nearest
+            n_neighbors=min(4, len(valid_camps)),  # Always get exactly 3 nearest
             metric='haversine'
         )
         knn.fit(camp_coords)
@@ -139,7 +139,7 @@ def find_nearby_camps():
         # Find nearest camps (without distance restriction first)
         distances, indices = knn.kneighbors(user_coord)
         
-        # Prepare exactly 3 nearest camps within max_distance
+        # Prepare exactly 4 nearest camps within max_distance
         results = []
         for i, distance in zip(indices[0], distances[0]):
             if distance * EARTH_RADIUS > max_distance:
@@ -149,13 +149,13 @@ def find_nearby_camps():
             camp['distance'] = round(float(distance * EARTH_RADIUS), 2)
             results.append(camp)
             
-            if len(results) == 3:  # Stop when we have 3 valid camps
+            if len(results) == 4:  # Stop when we have 3 valid camps
                 break
 
         # If we didn't get 3 within max_distance, include the closest ones beyond it
-        if len(results) < 3:
+        if len(results) < 4:
             for i, distance in zip(indices[0], distances[0]):
-                if len(results) == 3:
+                if len(results) == 4:
                     break
                     
                 # Only add if not already included
@@ -179,7 +179,7 @@ def find_nearby_camps():
             },
             "searchParameters": {
                 "maxDistance": max_distance,
-                "limit": 3,  # Explicitly state we're returning exactly 3
+                "limit": 4,  # Explicitly state we're returning exactly 4
                 "timestamp": datetime.now().isoformat()
             },
             "results": {

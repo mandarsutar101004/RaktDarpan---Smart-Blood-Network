@@ -128,7 +128,7 @@ const HospitalFinder = () => {
     <section className="hospital-finder-section py-5" id="findHospitals">
       <Container className="my-5">
         <h2 className="text-center mb-4" id="heading">
-          Hospital Directory
+          Hospitals
         </h2>
 
         {/* Filter Section */}

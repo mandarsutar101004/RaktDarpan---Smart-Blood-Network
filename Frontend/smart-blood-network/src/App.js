@@ -10,6 +10,7 @@ import CampRegistration from "./pages/CampRegistration";
 import BloodDonorEligibility from "./pages/EligibilityChecker";
 import NearByCamps from "./pages/NearByCamps";
 import CampManagement from "./pages/CampManagement";
+import EligibilityCheckerPage from "./pages/EligibilityCheckerPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register-blood-camp" element={<CampRegistration />} />
         <Route path="/blood-camps" element={<NearByCamps />} />
         <Route path="/manage-blood-camps" element={<CampManagement />} />
+        <Route path="/eligibility-checker" element={<EligibilityCheckerPage />} />
       </Routes>
     </Router>
   );

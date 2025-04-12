@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
+import sbn6 from "../Photos/sbn6.png";
 
 const RegistrationPage = () => {
   const [role, setRole] = useState("Donor");
@@ -124,7 +125,7 @@ const RegistrationPage = () => {
     <div className="reg-container">
       <div className="reg-left-panel">
         <div className="reg-left-content">
-          <img src="/logo-white.png" alt="Logo" className="reg-brand-logo" />
+          <img src={sbn6} alt="Logo" className="reg-brand-logo" />
           <h1 className="reg-welcome-text">Join Our Life-Saving Community</h1>
           <p className="reg-welcome-subtext">
             Every drop counts. Register today to become part of a network that
@@ -167,7 +168,6 @@ const RegistrationPage = () => {
                   "Recipient",
                   "Hospital",
                   "Organization",
-                  "Admin",
                 ].map((option) => (
                   <button
                     key={option}

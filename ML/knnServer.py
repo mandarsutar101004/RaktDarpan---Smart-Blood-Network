@@ -146,7 +146,7 @@ def match_donors():
             return jsonify({"message": f"Emails sent to {emails_sent} donor(s)!","nearestDonors": compatible_donors.to_dict(orient="records")}), 200
 
         # Train KNN model
-        n_neighbors = min(3, len(compatible_donors))  # Don't exceed donor count
+        n_neighbors = min(4, len(compatible_donors))  # Don't exceed donor count
         knn = NearestNeighbors(n_neighbors=n_neighbors, metric="euclidean")
         knn.fit(compatible_donors[["latitude", "longitude"]])
 
