@@ -11,12 +11,14 @@ import DonorFinder from "./DonorFinder.js";
 import HospitalFinder from "./HospitalFinder.js";
 import LiveCamps from "./LiveCamps.js";
 import EligibilityChecker from "./EligibilityChecker.js";
+import AboutSection from "./AboutSection.js";
 
 const HomePage = () => {
   return (
     <div className="container-fluid p-0">
       <Header />
       <HeroSection />
+      <AboutSection />
       <LiveCamps />
       <EligibilityChecker />
       <DonorFinder />

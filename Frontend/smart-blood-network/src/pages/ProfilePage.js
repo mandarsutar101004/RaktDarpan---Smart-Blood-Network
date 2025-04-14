@@ -100,6 +100,13 @@ const ProfilePage = () => {
             <Card className="profile-card">
               <div className="profile-cover">
                 <Button
+                  variant="outline-secondary"
+                  onClick={() => navigate(-1)}
+                  className="back-profile-btn"
+                >
+                  <i className="bi bi-arrow-left"></i> Back
+                </Button>
+                <Button
                   variant="light"
                   className="update-profile-btn"
                   onClick={handleUpdateProfile}

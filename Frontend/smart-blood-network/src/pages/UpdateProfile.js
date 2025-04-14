@@ -120,6 +120,13 @@ const UpdateProfile = () => {
           <Card className="profile-card shadow">
             <Card.Body>
               <div className="text-center mb-4">
+                <Button
+                  variant="outline-secondary"
+                  onClick={() => navigate(-1)}
+                  className="back-button mb-3"
+                >
+                  <i className="bi bi-arrow-left"></i> Back
+                </Button>
                 <h2>Update Profile</h2>
                 <Badge pill bg="primary" className="mb-2">
                   {user?.role}

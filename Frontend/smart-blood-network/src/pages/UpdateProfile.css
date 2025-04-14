@@ -1,4 +1,3 @@
-/* UpdateProfile.css */
 :root {
   --primary: #4361ee;
   --primary-dark: #3a0ca3;
@@ -9,8 +8,8 @@
   --dark: #212529;
   --gray: #6c757d;
   --light-gray: #e9ecef;
-  --form-bg: #f5f7ff; /* New form background color */
-  --card-bg: #ffffff; /* Card background color */
+  --form-bg: #f5f7ff;
+  --card-bg: #ffffff;
   --border-radius: 12px;
   --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -20,35 +19,33 @@
   max-width: 1200px;
   padding: 2rem 1rem;
   animation: fadeIn 0.6s ease-out;
-  background-color: var(--form-bg); /* Form background */
+  background-color: var(--form-bg);
   border-radius: var(--border-radius);
 }
 
-/* Card Styling */
-.profile-card {
+.update-profile-container .profile-card {
   border: none;
   border-radius: var(--border-radius);
   overflow: hidden;
-  background-color: var(--card-bg); /* Card background */
+  background-color: var(--card-bg);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
   position: relative;
 }
 
-.profile-card:hover {
+.update-profile-container .profile-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* Header Section */
-.profile-header {
+.update-profile-container .profile-header {
   text-align: center;
   padding: 2rem 2rem 1rem;
   background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.profile-header h2 {
+.update-profile-container .profile-header h2 {
   font-weight: 800;
   color: var(--primary-dark);
   margin-bottom: 0.5rem;
@@ -56,36 +53,34 @@
   letter-spacing: -0.5px;
 }
 
-/* Enhanced Badge Styling for Role */
-.badge {
+.update-profile-container .badge {
   font-weight: 600;
   letter-spacing: 0.5px;
   padding: 0.5em 1.2em;
-  font-size: 1.1rem; /* Larger font size */
-  transform: scale(1.1); /* Slightly scale up */
+  font-size: 1.1rem;
+  transform: scale(1.1);
   margin: 0.5rem 0;
   display: inline-block;
 }
 
-.badge.bg-primary {
+.update-profile-container .badge.bg-primary {
   background: linear-gradient(45deg, var(--primary), var(--primary-dark)) !important;
   box-shadow: 0 4px 12px rgba(58, 12, 163, 0.2);
-  padding: 0.6em 1.5em; /* Larger padding */
+  padding: 0.6em 1.5em;
 }
 
-/* Form Styling */
-.profile-form {
+.update-profile-container .profile-form {
   padding: 2rem;
-  background-color: var(--card-bg); /* Form background */
+  background-color: var(--card-bg);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-.form-group {
+.update-profile-container .form-group {
   margin-bottom: 1.75rem;
   position: relative;
 }
 
-.form-label {
+.update-profile-container .form-label {
   display: block;
   font-weight: 600;
   color: var(--dark);
@@ -93,7 +88,8 @@
   font-size: 0.95rem;
 }
 
-.form-control, .form-select {
+.update-profile-container .form-control,
+.update-profile-container .form-select {
   width: 100%;
   padding: 0.75rem 1.25rem;
   border: 2px solid var(--light-gray);
@@ -103,19 +99,19 @@
   background-color: #fff;
 }
 
-.form-control:focus, .form-select:focus {
+.update-profile-container .form-control:focus,
+.update-profile-container .form-select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.15);
   outline: none;
 }
 
-.form-control[disabled] {
+.update-profile-container .form-control[disabled] {
   background-color: var(--light-gray);
   opacity: 0.8;
 }
 
-/* Select Dropdown Styling */
-.form-select {
+.update-profile-container .form-select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%236c757d' stroke='%236c757d' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -123,8 +119,7 @@
   background-size: 16px 12px;
 }
 
-/* Button Styles */
-.form-actions {
+.update-profile-container .form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -133,7 +128,7 @@
   border-top: 1px solid var(--light-gray);
 }
 
-.btn {
+.update-profile-container .btn {
   padding: 0.75rem 2rem;
   border-radius: var(--border-radius);
   font-weight: 600;
@@ -146,39 +141,37 @@
   border: 2px solid transparent;
 }
 
-.btn-primary {
+.update-profile-container .btn-primary {
   background: linear-gradient(45deg, var(--primary), var(--primary-dark));
   color: white;
   border: none;
 }
 
-.btn-primary:hover {
+.update-profile-container .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(58, 12, 163, 0.3);
 }
 
-.btn-outline-secondary {
+.update-profile-container .btn-outline-secondary {
   border: 2px solid var(--gray);
   color: var(--gray);
   background: transparent;
 }
 
-.btn-outline-secondary:hover {
+.update-profile-container .btn-outline-secondary:hover {
   background-color: var(--light-gray);
   color: var(--dark);
   transform: translateY(-2px);
 }
 
-/* Loading Spinner */
-.btn .spinner-border {
+.update-profile-container .btn .spinner-border {
   width: 1.25rem;
   height: 1.25rem;
   border-width: 0.15em;
   margin-right: 0.5rem;
 }
 
-/* Alert Styles */
-.alert {
+.update-profile-container .alert {
   border-radius: var(--border-radius);
   padding: 1rem 1.5rem;
   margin-bottom: 2rem;
@@ -186,20 +179,19 @@
   box-shadow: var(--box-shadow);
 }
 
-.alert-danger {
+.update-profile-container .alert-danger {
   background-color: rgba(220, 53, 69, 0.1);
   color: #dc3545;
   border-left: 4px solid #dc3545;
 }
 
-.alert-success {
+.update-profile-container .alert-success {
   background-color: rgba(25, 135, 84, 0.1);
   color: #198754;
   border-left: 4px solid #198754;
 }
 
-/* Section Styling */
-.section-title {
+.update-profile-container .section-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary-dark);
@@ -208,7 +200,7 @@
   padding-left: 1rem;
 }
 
-.section-title::before {
+.update-profile-container .section-title::before {
   content: '';
   position: absolute;
   left: 0;
@@ -219,7 +211,6 @@
   border-radius: 4px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -237,13 +228,36 @@
   100% { transform: scale(1); }
 }
 
-/* Responsive Design */
+.update-profile-container .back-button {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.update-profile-container .back-button:hover {
+  background-color: var(--light-gray);
+  transform: translateX(-3px);
+}
+
+.update-profile-container .text-center.mb-4 {
+  position: relative;
+  padding-top: 1rem;
+}
+
+/* Media Queries */
 @media (max-width: 992px) {
-  .profile-form {
+  .update-profile-container .profile-form {
     padding: 1.5rem;
   }
-  
-  .profile-header h2 {
+
+  .update-profile-container .profile-header h2 {
     font-size: 1.75rem;
   }
 }
@@ -252,40 +266,47 @@
   .update-profile-container {
     padding: 1rem 0;
   }
-  
-  .profile-card {
+
+  .update-profile-container .profile-card {
     border-radius: 0;
   }
-  
-  .profile-form {
+
+  .update-profile-container .profile-form {
     padding: 1rem;
   }
-  
-  .form-actions {
+
+  .update-profile-container .form-actions {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
-  .btn {
+
+  .update-profile-container .btn {
     width: 100%;
+  }
+
+  .update-profile-container .back-button {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 576px) {
-  .profile-header {
+  .update-profile-container .profile-header {
     padding: 1.5rem 1rem;
   }
-  
-  .profile-header h2 {
+
+  .update-profile-container .profile-header h2 {
     font-size: 1.5rem;
   }
-  
-  .form-group {
+
+  .update-profile-container .form-group {
     margin-bottom: 1.25rem;
   }
-  
-  .badge {
-    font-size: 1rem; /* Slightly smaller on mobile */
-    transform: scale(1); /* Reset scale on mobile */
+
+  .update-profile-container .badge {
+    font-size: 1rem;
+    transform: scale(1);
   }
 }

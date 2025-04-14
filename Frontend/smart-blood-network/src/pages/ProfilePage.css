@@ -277,3 +277,36 @@
 .error-container .btn {
   margin-top: 1rem;
 }
+
+.back-profile-btn {
+ position: absolute;
+  top: 20px;
+  right: 160px; /* Adjust to align with "Update Profile" */
+  background-color: #4f46e5; /* Indigo-600 */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-profile-btn:hover {
+  background-color: #4338ca; /* Darker indigo */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .back-profile-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .update-profile-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

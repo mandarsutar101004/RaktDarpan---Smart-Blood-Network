@@ -1,0 +1,82 @@
+/* General container styling */
+.about-container {
+  background-color: white;
+  padding: 3rem 1.5rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.about-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #D9534F; /* Red shade */
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Flex container for about section and video */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media(min-width: 768px) {
+  .about-content {
+    flex-direction: row; /* Side by side layout on desktop */
+  }
+}
+
+/* Left column (text) */
+.about-text {
+  flex: 1;
+}
+
+.about-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #4A4A4A;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #D9534F;
+}
+
+.about-feature-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D9534F;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-feature-list {
+  list-style-type: disc;
+  margin-left: 2rem;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+
+/* Right column (video) */
+.about-video {
+  flex: 1;
+}
+
+.video-container {
+  position: relative;
+  padding-top: 56.25%; /* Aspect ratio for 16:9 */
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

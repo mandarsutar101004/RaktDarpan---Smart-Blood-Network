@@ -1,64 +1,124 @@
 /* UrgentBloodRequest.css */
-.blood-request-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+.urgent-blood-request-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.back-button {
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  padding: 8px 20px;
+}
+
+.back-button:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: translateX(-5px);
+}
+
+.blood-request-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
 }
 
 .blood-request-header {
-  background-color: #dc3545;
+  background-color: #8a000e;
   color: white;
-  padding: 15px;
-  border-radius: 8px 8px 0 0;
-  margin-bottom: 0;
+  padding: 20px;
+  border-radius: 0;
+}
+
+.blood-request-header h2 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.blood-request-header p {
+  opacity: 0.9;
+  font-size: 1.5rem;
 }
 
 .blood-request-form {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 0 0 8px 8px;
+  padding: 30px;
 }
 
 .blood-request-label {
-  font-weight: 500;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
 }
 
 .blood-request-input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
-  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.blood-request-input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
 }
 
 .blood-request-button {
   background-color: #dc3545;
   color: white;
-  padding: 10px 25px;
+  padding: 12px 30px;
   border: none;
-  border-radius: 5px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  min-width: 200px;
 }
 
-.blood-request-results {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
+.blood-request-button:hover {
+  background-color: #bb2d3b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blood-request-button:disabled {
+  background-color: #dc3545;
+  opacity: 0.7;
 }
 
 .blood-request-donor-card {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.blood-request-donor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .blood-request-badge {
   background-color: #dc3545;
   color: white;
-  padding: 3px 8px;
-  border-radius: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
   font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blood-request-form {
+    padding: 20px;
+  }
+  
+  .blood-request-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .blood-request-button {
+    width: 100%;
+  }
 }
 
 /* Bootstrap icons */

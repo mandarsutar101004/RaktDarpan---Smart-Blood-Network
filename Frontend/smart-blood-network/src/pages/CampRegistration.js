@@ -173,6 +173,9 @@ const CampRegistration = () => {
 
   return (
     <div className="camp-registration-container blood-camp-form">
+      <button onClick={() => navigate(-1)} className="back-button">
+        ← Back
+      </button>
       <h2>Register New Blood Camp</h2>
       <form onSubmit={handleSubmit}>
         {/* Camp Information */}

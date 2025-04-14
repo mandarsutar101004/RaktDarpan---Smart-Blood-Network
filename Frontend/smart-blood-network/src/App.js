@@ -11,6 +11,7 @@ import BloodDonorEligibility from "./pages/EligibilityChecker";
 import NearByCamps from "./pages/NearByCamps";
 import CampManagement from "./pages/CampManagement";
 import EligibilityCheckerPage from "./pages/EligibilityCheckerPage";
+import UserManagement from "./pages/UserManagement";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/blood-camps" element={<NearByCamps />} />
         <Route path="/manage-blood-camps" element={<CampManagement />} />
         <Route path="/eligibility-checker" element={<EligibilityCheckerPage />} />
+        <Route path="/user-management" element={<UserManagement />} />
+        {/* Add more routes as needed */}
       </Routes>
     </Router>
   );

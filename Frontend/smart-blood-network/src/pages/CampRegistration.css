@@ -146,3 +146,18 @@
   background-size: 1rem;
   padding-right: 2rem;
 }
+
+.blood-camp-form .back-button {
+  background-color: transparent;
+  border: 1px solid #e63946;
+  color: #e63946;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+.blood-camp-form .back-button:hover {
+  background-color: #e63946;
+  color: white;
+}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./CampManagement.css";
 
 const CampManagement = () => {
+  const navigate = useNavigate();
   const [camps, setCamps] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -280,6 +282,9 @@ const CampManagement = () => {
 
   return (
     <div className="camp-management-container">
+      <button onClick={() => navigate(-1)} className="back-btn">
+        ← Back
+      </button>
       <h2>Manage Your Blood Donation Camps</h2>
 
       {camps.length === 0 ? (

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import styles from "./NearByCamps.module.css";
 
 const NearByCamps = () => {
+  const navigate = useNavigate(); // Move useNavigate here
   const [userLocation, setUserLocation] = useState(null);
   const [nearbyCamps, setNearbyCamps] = useState([]);
   const [loading, setLoading] = useState({
@@ -104,6 +106,9 @@ const NearByCamps = () => {
     <div className={styles.nearbyCampsContainer}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
+          <button onClick={() => navigate(-1)} className={styles.backBtn}>
+            ← Back
+          </button>
           <h1>Nearby Blood Donation Camps</h1>
           <p className={styles.subtitle}>
             Find the closest blood donation opportunities in your area

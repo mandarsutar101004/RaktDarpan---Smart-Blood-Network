@@ -111,12 +111,12 @@ const loginUser = async (req, res) => {
       });
     }
 
-    // Check if user is active (optional)
-    // if (user.status !== "active") {
-    //   return res.status(403).json({
-    //     message: "Account is not active. Please contact support.",
-    //   });
-    // }
+    // Check if user is blocked
+    if (user.isBlocked) {
+      return res.status(403).json({
+        message: "Your account is blocked. Please contact support.",
+      });
+    }
 
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
@@ -168,6 +168,7 @@ const loginUser = async (req, res) => {
   }
 };
 
+
 //Current User
 const currentUser = async (req, res) => {
   try {
@@ -203,6 +204,32 @@ const getAllHospitals = async (req, res) => {
     res
       .status(500)
       .json({ message: "Error fetching Hospitals", error: error.message });
+  }
+};
+
+const getAllRecipients = async (req, res) => {
+  try {
+    const recipients = await userModel
+      .find({ role: "Recipient" })
+      .select("-password"); // Exclude password field
+    res.status(200).json(recipients);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching Recipients", error: error.message });
+  }
+};
+
+const getAllOrganizations = async (req, res) => {
+  try {
+    const organizations = await userModel
+      .find({ role: "Organization" })
+      .select("-password"); // Exclude password field
+    res.status(200).json(organizations);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching Organizations", error: error.message });
   }
 };
 
@@ -274,12 +301,117 @@ const matchDonors = async (req, res) => {
   }
 };
 
+
+const blockUserByEmail = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Validate email
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide an email address",
+      });
+    }
+
+    // Find and update user
+    const user = await userModel.findOneAndUpdate(
+      { email },
+      { isBlocked: true },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User blocked successfully",
+      user: {
+        id: user._id,
+        email: user.email,
+        isBlocked: user.isBlocked,
+      },
+    });
+  } catch (error) {
+    console.error("Block user error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error blocking user",
+      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+    });
+  }
+};
+
+const unblockUserByEmail = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Validate email
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide an email address",
+        errorCode: "EMAIL_REQUIRED",
+      });
+    }
+
+    // Find and update user
+    const user = await userModel.findOneAndUpdate(
+      { email },
+      { isBlocked: false }, // Set isBlocked to false to unblock
+      { new: true } // Return the updated document
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found with the provided email",
+        email: email,
+        errorCode: "USER_NOT_FOUND",
+      });
+    }
+
+    // Success response
+    res.status(200).json({
+      success: true,
+      message: "User unblocked successfully",
+      user: {
+        id: user._id,
+        email: user.email,
+        isBlocked: user.isBlocked, // Should now be false
+      },
+    });
+  } catch (error) {
+    console.error("Unblock user error:", {
+      error: error.message,
+      emailAttempted: email,
+      timestamp: new Date().toISOString(),
+    });
+
+    res.status(500).json({
+      success: false,
+      message: "Error unblocking user",
+      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      errorCode: "UNBLOCK_FAILED",
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
   currentUser,
   getAllDonors,
   getAllHospitals,
+  getAllRecipients,
+  getAllOrganizations,
   updateUser,
   matchDonors,
+  blockUserByEmail,
+  unblockUserByEmail,
 };

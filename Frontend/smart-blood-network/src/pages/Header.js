@@ -112,6 +112,16 @@ const Header = () => {
             </Link>
           </>
         );
+      case "Admin":
+        return (
+          <Link
+            to="/user-management"
+            className="sidebar-link"
+            onClick={toggleSidebar}
+          >
+            User Management
+          </Link>
+        );
       default:
         return null;
     }
@@ -213,7 +223,7 @@ const Header = () => {
                 className="sidebar-link"
                 onClick={toggleSidebar}
               >
-                Settings
+                Delete Account
               </Link>
 
               <button className="sidebar-link logout" onClick={handleLogout}>
