@@ -149,4 +149,5 @@ bloodCampSchema.pre("save", function (next) {
 });
 
 const BloodCamp = mongoose.model("BloodCamp", bloodCampSchema);
+
 module.exports = BloodCamp;

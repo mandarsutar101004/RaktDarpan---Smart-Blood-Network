@@ -12,6 +12,8 @@ import NearByCamps from "./pages/NearByCamps";
 import CampManagement from "./pages/CampManagement";
 import EligibilityCheckerPage from "./pages/EligibilityCheckerPage";
 import UserManagement from "./pages/UserManagement";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -26,8 +28,10 @@ function App() {
         <Route path="/register-blood-camp" element={<CampRegistration />} />
         <Route path="/blood-camps" element={<NearByCamps />} />
         <Route path="/manage-blood-camps" element={<CampManagement />} />
-        <Route path="/eligibility-checker" element={<EligibilityCheckerPage />} />
+        <Route path="/eligibility-checker" element={<EligibilityCheckerPage />}/>
         <Route path="/user-management" element={<UserManagement />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>

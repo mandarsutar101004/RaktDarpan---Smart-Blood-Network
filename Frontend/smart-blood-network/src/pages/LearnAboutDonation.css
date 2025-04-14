@@ -1,91 +1,165 @@
 .donation-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 50px auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 30px; /* Adds more space between image and table */
+  gap: 40px;
   flex-wrap: wrap;
-  margin-left: 2%;
+  padding: 0 20px;
+  max-width: 1400px;
 }
 
 .image-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the button below the image */
-  text-align: center;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .donation-image {
-  height: 450px;
   width: 100%;
+  height: auto;
+  max-height: 400px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-left: 150px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.donation-image:hover {
+  transform: scale(1.02);
 }
 
 .donate-button {
-  margin-left: 200px;
-  margin-top: 15px;
-  padding: 10px 20px;
+  margin-top: 25px;
+  padding: 12px 30px;
   font-size: 18px;
-  background-color: red;
+  font-weight: 600;
+  background-color: #e63946;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+  width: fit-content;
 }
 
 .donate-button:hover {
-  background-color: darkred;
+  background-color: #c1121f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
 }
 
 .table-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 2;
+  min-width: 300px;
+  max-width: 800px;
 }
 
 .table-content {
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e63946;
   text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #e63946;
 }
 
 .table {
   width: 100%;
-  min-width: 1000px;
-  max-width: 1200px;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 16px;
-  border-collapse: collapse;
-  margin-top: 40px; /* Reduced space between heading and table */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .table th {
-  background-color: #ffcccc; /* Light pink background */
-  color: black;
-  font-weight: bold;
-  padding: 12px;
+  background-color: #e63946;
+  color: white;
+  font-weight: 600;
+  padding: 14px;
   text-align: center;
-  border: 1px solid #ddd;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .table td {
-  padding: 10px;
+  padding: 12px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid #f8f9fa;
+  transition: background-color 0.2s ease;
 }
 
-/* Blood Groups Styling */
+.table tr:nth-child(even) {
+  background-color: #fff5f5;
+}
+
+.table tr:nth-child(odd) {
+  background-color: white;
+}
+
+.table tr:hover td {
+  background-color: #ffecec;
+}
+
 .table td:first-child {
-  font-weight: bold;
-  color: darkred; /* Dark red blood groups */
+  font-weight: 700;
+  color: #e63946;
 }
 
-h2 {
-  margin-bottom: 5px; /* Reduced space between title and table */
-  font-weight: bold;
-  color: #dc3545;;
-  text-align: center;
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .donation-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container {
+    margin-bottom: 30px;
+  }
+  
+  .table {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .table {
+    font-size: 14px;
+  }
+  
+  .table th, .table td {
+    padding: 8px 6px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  .donate-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
 }

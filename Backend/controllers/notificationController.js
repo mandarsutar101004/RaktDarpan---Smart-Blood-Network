@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+const axios = require("axios");
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
@@ -108,4 +109,46 @@ Team RaktDarpan 💌
   }
 };
 
-module.exports = { sendBloodRequestNotification };
+
+const sendFeedback = async (req, res) => {
+  try {
+    // If using token-based auth, pass headers
+    const userRes = await axios.get(
+      "http://localhost:8081/api/users/currentUser",
+      {
+        headers: {
+          Authorization: req.headers.authorization, // pass token if needed
+        },
+      }
+    );
+
+    const userEmail = userRes.data.email;
+    const { message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "raktdarpan2024@gmail.com",
+        pass: "mnrd fljh qkri krtc",
+      },
+      tls: {
+        rejectUnauthorized: false, // 👈 Add this line to ignore self-signed cert issues
+      },
+    });
+
+    const mailOptions = {
+      from: userEmail,
+      to: "raktdarpan2024@gmail.com", // Your receiving email
+      subject: "User Feedback",
+      text: `Message:\n${message}\n\nFrom: ${userEmail}`,
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: "Feedback sent successfully" });
+  } catch (error) {
+    console.error("Feedback Error:", error.message);
+    res.status(500).json({ message: "Failed to send feedback" });
+  }
+};
+
+module.exports = { sendBloodRequestNotification, sendFeedback };
