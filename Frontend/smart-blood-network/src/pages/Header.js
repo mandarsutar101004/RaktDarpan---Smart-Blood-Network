@@ -150,6 +150,10 @@ const Header = () => {
             Find Hospitals
           </ScrollLink>
 
+          <Link to="/askwithai" className="nav-link">
+            ASK WITH AI
+          </Link>
+
           <ScrollLink to="contact" className="nav-link">
             Contact
           </ScrollLink>
@@ -191,13 +195,6 @@ const Header = () => {
             </div>
 
             <nav className="sidebar-nav">
-              <Link
-                to="/dashboard"
-                className="sidebar-link"
-                onClick={toggleSidebar}
-              >
-                Dashboard
-              </Link>
               <Link
                 to="/profile"
                 className="sidebar-link"

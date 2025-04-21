@@ -135,6 +135,54 @@ const Contact = () => {
           <h2 className="text-center mb-4">Get In Touch</h2>
 
           {/* ... (rest of your contact cards remain the same) ... */}
+          <Row className="g-4 mb-5">
+            <Col md={4}>
+              <div className="contact-card h-100">
+                <div className="contact-icon">
+                  <FaPhone size={28} />
+                </div>
+                <h3>Emergency Helpline</h3>
+                <p>Available 24 hours</p>
+                <a href="tel:+911234567890" className="contact-link">
+                  +91 12345 67890
+                </a>
+              </div>
+            </Col>
+
+            <Col md={4}>
+              <div className="contact-card h-100">
+                <div className="contact-icon">
+                  <FaEnvelope size={28} />
+                </div>
+                <h3>Email Us</h3>
+                <p>Response within 24 hours</p>
+                <a
+                  href="mailto:raktdarpan2024@gmail.com"
+                  className="contact-link"
+                >
+                  raktdarpan2024@gmail.com
+                </a>
+              </div>
+            </Col>
+
+            <Col md={4}>
+              <div className="contact-card h-100">
+                <div className="contact-icon">
+                  <FaMapMarkerAlt size={28} />
+                </div>
+                <h3>Our Location</h3>
+                <p>Mumbai, Maharashtra</p>
+                <a
+                  href="https://maps.google.com?q=RaktDarpan+Mumbai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link"
+                >
+                  View on Map
+                </a>
+              </div>
+            </Col>
+          </Row>
 
           <Row className="justify-content-center">
             <Col lg={8}>

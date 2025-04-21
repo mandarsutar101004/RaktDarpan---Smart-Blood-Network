@@ -1,0 +1,147 @@
+.chatbotContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.headerContent .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dc2626;
+}
+
+.headerContent .subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.chatArea {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatCard {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chatContent {
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.userMessage {
+  justify-content: flex-end;
+}
+
+.botMessage {
+  justify-content: flex-start;
+}
+
+.messageBubble {
+  max-width: 80%;
+  padding: 0.6rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  word-break: break-word;
+}
+
+.userBubble {
+  background-color: #dc2626;
+  color: white;
+  border-top-right-radius: 0;
+}
+
+.botBubble {
+  background-color: #f3f4f6;
+  color: #111827;
+  border-top-left-radius: 0;
+}
+
+.messageContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.messageIcon {
+  margin-top: 0.2rem;
+}
+
+.senderName {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.userSender {
+  color: #fca5a5;
+}
+
+.botSender {
+  color: #6b7280;
+}
+
+.messageBody p {
+  margin: 0.1rem 0;
+}
+
+.listItem {
+  padding-left: 1rem;
+  position: relative;
+}
+
+.listItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+}
+
+.inputArea {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  background: #f9fafb;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.suggestedQuestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.text-white {
+    --bs-text-opacity: 1;
+    color: rgb(0 0 0) !important;
+}

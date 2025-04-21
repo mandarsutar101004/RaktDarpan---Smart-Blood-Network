@@ -10,6 +10,7 @@
     "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "framer-motion": "^12.6.3",
+    "lucide-react": "^0.488.0",
     "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
@@ -22,11 +23,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-ml\" \"npm run start-ml-camps\"",
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-ml\" \"npm run start-ml-camps\" \"npm run start-ml-chatbot\"",
     "start-frontend": "react-scripts start",
     "start-backend": "cd ../../backend && npm start",
     "start-ml": "cd ../../ML && python knnServer.py",
     "start-ml-camps": "cd ../../ML && python nearbyCamps.py",
+    "start-ml-chatbot": "cd ../../ML && python app.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

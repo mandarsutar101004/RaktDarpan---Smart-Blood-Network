@@ -14,6 +14,7 @@ import EligibilityCheckerPage from "./pages/EligibilityCheckerPage";
 import UserManagement from "./pages/UserManagement";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Chatbot from "./pages/Chatbot";
 
 function App() {
   return (
@@ -28,10 +29,15 @@ function App() {
         <Route path="/register-blood-camp" element={<CampRegistration />} />
         <Route path="/blood-camps" element={<NearByCamps />} />
         <Route path="/manage-blood-camps" element={<CampManagement />} />
-        <Route path="/eligibility-checker" element={<EligibilityCheckerPage />}/>
+        <Route
+          path="/eligibility-checker"
+          element={<EligibilityCheckerPage />}
+        />
         <Route path="/user-management" element={<UserManagement />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/askwithai" element={<Chatbot />} />
+
         {/* Add more routes as needed */}
       </Routes>
     </Router>
