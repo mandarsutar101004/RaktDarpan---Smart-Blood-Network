@@ -1,1 +1,2 @@
 pip install flask pandas scikit-learn flask-cors gunicorn
+pip freeze > requirements.txt
